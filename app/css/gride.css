@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+:root {
+    /* Dark theme (left side of the image) */
+    --dark-primary: #0078e8;
+    --dark-text-primary: #E5E5E5;
+    --dark-text-secondary: #A9A9A9;
+    --dark-background-primary: #121212;
+    --dark-background-secondary: #1A1A1A;
+    --dark-background-tertiary: #242424;
+    --dark-accent: #1FBFB8;
+
+    /* Light theme (right side of the image) */
+    --light-primary: #0078e8;
+    --light-text-primary: #000000;
+    --light-text-secondary: #666666;
+    --light-background-primary: #FFFFFF;
+    --light-background-secondary: #F2F2F2;
+    --light-background-tertiary: #E0E0E0;
+    --light-accent: #1FBFB8;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: clamp(10px, 3vw, 20px);
+    /* Dynamically adjust the gap based on viewport size */
+    width: calc(100% - 300px) !important;
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 20px;
+}
+
+.card {
+    position: relative;
+    background-color: var(--light-background-primary);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    border: 1px solid var(--light-background-tertiary);
+    height: 200px;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: var(--light-text-primary);
+    padding: 16px;
+    text-align: start;
+    z-index: 2;
+}
+
+.card-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card-title {
+    font-size: 17px;
+    margin-bottom: 8px;
+    color: #fff;
+    /* White text for overlay */
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+}
+
+.card-paragraph {
+    font-size: 12px;
+    color: #ddd;
+    /* Light text for overlay */
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+}
+
+.card a {
+    color: var(--light-accent);
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+}
+
+.t-grid-container {
+    margin-top: 60px !important;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        width: 100% !important;
+        margin-top: 60px;
+    }
+
+    .t-grid-container {
+        margin-top: 60px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        gap: 15px;
+        /* Smaller gap for smaller screens */
+    }
+
+    .card-title {
+        font-size: 17px;
+    }
+
+    .card-paragraph {
+        font-size: 13px;
+    }
+}
+
+.card__image {
+    height: 100% !important;
+}
+
+.skeleton-card {
+    position: relative;
+    background-color: #f0f0f0;
+    /* Light grey background for skeleton */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    /* Light grey border */
+    height: 200px;
+}
+
+.skeleton-image {
+    width: 100%;
+    height: 100%;
+    background-color: #d0d0d0;
+    /* Darker grey for image area */
+    background: linear-gradient(90deg, #d0d0d0 25%, #f0f0f0 50%, #d0d0d0 75%);
+    /* Gradient for glowing effect */
+    background-size: 200% 100%;
+    /* Extend the gradient */
+    animation: shimmer 1.5s infinite;
+    /* Shimmer animation */
+}
+
+.skeleton-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    color: #000000;
+    /* Black text */
+}
+
+.skeleton-title {
+    height: 20px;
+    width: 70%;
+    background-color: #bbbb;
+    /* Grey for title */
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #bbbb 25%, #f0f0f0 50%, #bbbb 75%);
+    /* Gradient for glowing effect */
+    background-size: 200% 100%;
+    /* Extend the gradient */
+    animation: shimmer 1.5s infinite;
+    /* Shimmer animation */
+}
+
+.skeleton-paragraph {
+    height: 12px;
+    width: 90%;
+    background-color: #bbbb;
+    /* Grey for paragraph */
+    background: linear-gradient(90deg, #bbbb 25%, #f0f0f0 50%, #bbbb 75%);
+    /* Gradient for glowing effect */
+    background-size: 200% 100%;
+    /* Extend the gradient */
+    animation: shimmer 1.5s infinite;
+    /* Shimmer animation */
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+        /* Start position */
+    }
+
+    100% {
+        background-position: -200% 0;
+        /* End position */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .skeleton-title {
+        height: 18px;
+    }
+
+    .skeleton-paragraph {
+        height: 10px;
+    }
+}
