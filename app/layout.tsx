@@ -1,5 +1,6 @@
 import "@/app/css/globals.css";
 import Header from "@/components/Header/Header";
+import HeaderMobile from '@/components/HeaderMobile/HeaderMobile'
 
 export default function RootLayout({
   children,

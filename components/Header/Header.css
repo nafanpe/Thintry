@@ -6,7 +6,7 @@
 .homepage-container {
     display: flex;
     height: 100%;
-    width: 85%;
+    width: 95%;
 }
 
 /* Centre Content */
@@ -14,24 +14,73 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 4;
+    flex: 5;
     text-align: center;
+    margin-top: 0px;
     height: 100vh;
     overflow-y: auto;
     scrollbar-width: none;
+    padding-left: 200px;
 }
 
-.centre-section .left-container {
-    
+
+.menu-icon{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    cursor: pointer;
+}
+
+.menu-icon svg{
+    width: 30px;
+    height: auto;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-icon.closed svg{
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-icon.open svg{
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Left Content */
 .left-bar {
-    position: relative;
-    flex: 0.9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 200px;
+    flex: 1;
+    padding-left: 35px;
     background-color: white;
     border-right: 1px solid #ddd;
     text-align: start;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out;
+}
+
+.left-bar.closed{
+    transform: translateX(-120%);
+}
+
+.left-bar.open{
+    transform: translateX(0);
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 200px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 900;
+    display: block;
 }
 
 .left-bar .logo {
@@ -113,6 +162,7 @@
     flex-direction: column;
     align-items: center;
     width: 87.5%;
+    height: 200px;
     cursor: pointer;
     border: 1px solid #ddd;
     border-radius: 0.75rem;
@@ -151,3 +201,40 @@
     border-radius: 100%;
     padding: 20px;
 } */
+
+@media (max-width: 768px){
+    .left-bar{
+        transform: translateX(-100%);
+    }
+
+    .menu-icon{
+        display: block;
+        width: 100vw;
+        transform: translateX(100);
+        background: white;
+    }
+
+    .centre-section{
+        margin-top: 50px;
+        margin-left: -10px;
+        padding-left: 0px;
+    }
+    
+    .menu-icon.closed svg{
+        transform: translateX(0);
+    }
+
+    .menu-icon.open svg{
+        transform: translateX(350%);
+    }
+}
+
+@media (min-width: 769px){
+    .left-bar{
+        transform: translateX(0);
+    }
+
+    .overlay{
+        display: none;
+    }
+}
