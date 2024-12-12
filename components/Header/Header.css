@@ -33,18 +33,26 @@
     cursor: pointer;
 }
 
-.menu-icon svg{
-    width: 30px;
+.menu-icon img{
+    width: 200px;
     height: auto;
-    padding: 15px;
+    padding: 10px;
+    padding-left: 0;
     transition: transform 0.3s ease-in-out;
 }
 
-.menu-icon.closed svg{
+.menu-icon svg{
+    width: 35px;
+    height: auto;
+    padding: 12px;
     transition: transform 0.3s ease-in-out;
 }
 
-.menu-icon.open svg{
+.menu-icon.closed img, svg{
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-icon.open img, svg{
     transition: transform 0.3s ease-in-out;
 }
 
@@ -85,6 +93,7 @@
 
 .left-bar .logo {
     margin-left: -10px;
+    display: block;
 }
 
 .left-bar .logo img {
@@ -207,6 +216,11 @@
         transform: translateX(-100%);
     }
 
+    .left-bar .logo {
+        margin-left: -10px;
+        display: none;
+    }
+
     .menu-icon{
         display: block;
         width: 100vw;
@@ -220,18 +234,26 @@
         padding-left: 0px;
     }
     
-    .menu-icon.closed svg{
+    .menu-icon.closed img, svg{
         transform: translateX(0);
     }
 
+    .menu-icon.open img{
+        transform: translateX(380%);
+    }
+
     .menu-icon.open svg{
-        transform: translateX(350%);
+        transform: translateX(380%);
     }
 }
 
 @media (min-width: 769px){
     .left-bar{
         transform: translateX(0);
+    }
+
+    .centre-section{
+        padding-left: 210px;    
     }
 
     .overlay{

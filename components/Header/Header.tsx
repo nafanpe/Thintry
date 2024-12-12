@@ -34,6 +34,7 @@ function Header() {
         <>
         <div className={`menu-icon ${isSidebarOpen? 'open' : 'closed'}`} onClick={togglesidebar}>
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d='M4.5 6.5h15M4.5 12h15m-15 5.5h15'/></svg>
+            <img src="/img/green-fire-logo-black-text.png" alt="THINTRY LOGO" />
         </div>
 
         <div className={`left-bar ${isSidebarOpen ? 'open' : 'closed'}`}>
