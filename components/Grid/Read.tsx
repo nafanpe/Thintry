@@ -39,7 +39,7 @@ function Read() {
         <>
             <div className="blog-grid">
                 {blogPosts.map((post) => (
-                    <Link href="/" key={post.id} className='blog-card'>
+                    <Link href="/articles" key={post.id} className='blog-card'>
                         <img src={post.image} alt={post.title} />
                         <h3>{post.title}</h3>
                         <p>{post.desciption}</p>
